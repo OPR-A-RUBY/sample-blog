@@ -1,7 +1,17 @@
 <h2>New article</h2>
 
 <%= form_for :article, url: '/articles' do |f| %>
-	
+
+	<% if @article && @article.errors.any? %>
+	<ul>
+		 <% @article.errors.full_messages.each do |msg| %>
+
+			<li><%= msg %></li>
+		 
+		 <% end %>
+	</ul>
+	<% end %>
+
 	<p>
 		<%= f.label :title%><br />
 		<%= f.text_field :title %>
