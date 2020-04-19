@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(contact_params)
+    @article = Article.new(article_params)
     if @article.valid?
       @article.save
     else
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   private  # Ниже будут храниться спрятанные (privat) методы, которые могут быть вызваны только из методов выше. Эти спрятанные методы не доступны извне. Это в том числе сделано для безопасности. 
 
-  def contact_params
+  def article_params
     params.require(:article).permit(:title, :text)
     # параметры.требуется(:контакт).разрешать(:электронную почту, :сообщение)
   end
