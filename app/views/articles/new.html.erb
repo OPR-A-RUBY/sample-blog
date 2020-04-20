@@ -1,6 +1,10 @@
 <h2>New article</h2>
 
-<%= form_for :article, url: '/articles' do |f| %>
+<!-- Здесь определяется куда переходит браузер после нажатии кнопки в форме
+                   url: статей_путь  (множественное число) => /articles/ 
+    функция переменная { это  всё  хеш } 
+                       key: value                      -->
+<%= form_for :article, url: articles_path do |f| %>
 
 	<% if @article && @article.errors.any? %>
 	<ul>
