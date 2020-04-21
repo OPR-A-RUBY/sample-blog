@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
     end
     # !!ВАЖНО!! - представление create.html.erb - не понадобится, т.к. оно не вызывается в этом методе. В результате выполнения будет вызвано одно из вышеописанных представлений.
 
-    # render plain: params[:article].inspect # Этоя для отладки  
+    # render plain: params[:article].inspect # Это строка для отладки  
   end
 
   def edit
