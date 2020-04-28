@@ -22,9 +22,9 @@ class ArticlesController < ApplicationController
       redirect_to @article                  # .. перенаправить на ID (=11) из @article т.е.
                                             # /articles/11/
     else                    # ... иначе 
-      render action: 'new'  # перенаправить на акцию new, т.е. /articles/new/
+      render action: 'new'  # "ОТРИСОВАТЬ" акцию new, т.е. /articles/new/ и вывести соеуе представление /app/view/new.html.erb   Без rendera браузер автоматом происходит переход на своё представление /app/view/create.html.erb которого к стати, здесь нет, т.к. мы на него не уходим.
     end
-    # !!ВАЖНО!! - представление create.html.erb - не понадобится, т.к. оно не вызывается в этом методе. В результате выполнения будет вызвано одно из вышеописанных представлений.
+    # !!ВАЖНО!! - представление create.html.erb - не понадобится, т.к. оно не вызывается в этом методе. В результате выполнения будет вызвано одно из вышеописанных представлений. 
 
     # render plain: params[:article].inspect # Это строка для отладки  
   end
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
       redirect_to @article                  # .. перенаправить на ID (=11) из @article т.е.
                                             # /articles/11/
     else                     # ... иначе 
-      render action: 'edit'  # перенаправить на акцию edit, т.е. /articles/11/edit/
+      render action: 'edit'  # "ОТРИСОВАТЬ" акцию edit, т.е. /articles/11/edit/ и вывести соеуе представление /app/view/edit.html.erb  Без rendera браузер происходит переход на своё представление /app/view/update.html.erb которого к стати, здесь нет, т.к. мы на него не уходим. 
     end
   end
 
