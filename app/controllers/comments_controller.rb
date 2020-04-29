@@ -5,14 +5,14 @@ class CommentsController < ApplicationController
   def create
     # Запоминаем в переменную выбранную статью. Статью выбираем по параметру :artticle_id который мы можем увидеть в терминале по команде # rake routes 
     # POST   /articles/:article_id/comments(.:format)  comments#create
-    @art = Article.find(params[:artticle_id])
+    @art = Article.find(params[:article_id])
   # @art = Article.find(15) - так было в консоли - выбирали 15-ю статью
 
     # Далее вносим коментарий к статье в базу данных 
     @art.comments.create(comment_params)  # параметры через приват-зону
   # @art.comments.create({ autor: 'Mike', body: 'Hello. You article is good!' }) - из консоли
 
-    redirect_to article_path(@article) 
+    redirect_to articles_path(@article) 
   end
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
