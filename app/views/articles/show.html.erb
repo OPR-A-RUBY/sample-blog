@@ -5,10 +5,22 @@
 	<%= @article.title %>	
 </h2>
 
-<p>
-	
+<p>	
 	<%= @article.text %>
 </p>
+
+<h3>Comments for this Article:</h3>
+<ul>
+	<% @article.comments.each do |item_comment| %>
+		<li>
+			<b><%= item_comment.autor %> said: </b>
+			<i><%= item_comment.body %> </i>
+		</li>
+	<% end %>
+</ul>
+<br />
+
+<h3>Addet new comment:</h3>
 <p>
 	<!-- Здесь определяется куда переходит браузер после нажатии кнопки в форме
                    url: статей_путь  (множественное число) => /articles/ 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # Создаём маршруты для множественного ресурса (resources)
   resources :articles do    # Каждой статье будет определён ...
+    # resources :comments, only: [:create]
     resources :comments     # ... полный комплект маршрутов для коментариев
   end
 

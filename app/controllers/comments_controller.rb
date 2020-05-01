@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @art.comments.create(comment_params)  # параметры через приват-зону
   # @art.comments.create({ autor: 'Mike', body: 'Hello. You article is good!' }) - из консоли
 
-    redirect_to articles_path(@article) 
+    redirect_to article_path(@art) 
   end
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
