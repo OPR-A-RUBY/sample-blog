@@ -12,10 +12,19 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <a href="/users/sign_in">Sign in</a> | 
-    <a href="/users/sign_out", data-method="delete" >Sign out</a> |
-
+    <p>
+      <a href="/users/sign_in">Sign in</a> | 
+      <a href="/users/sign_out", data-method="delete" >Sign out</a> |
+    </p>
+    <p>
+      <a href="/">Home</a> |
+      <a href="/articles">Articles</a> | 
+      <a href="/articles/new">New</a> |
+      <a href="/terms">Terms</a> |
+      <a href="/contacts">Contacts</a> |
+      <a href="/about">About</a> 
+       
+    </p>
     <%= yield %>
 
   </body>
