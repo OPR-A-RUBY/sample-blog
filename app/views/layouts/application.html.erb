@@ -22,7 +22,8 @@
     <br />
 <!-- А вот такуой способ указывать пути желателен, т.к. пути прописаны переменными из "rake routes" (далее, ra-ro) -->   
     <p>
-      <h3>It is TRUE !!!</h3>  <%= link_to 'Sign In', new_user_session_path %> |
+      <h3>It is TRUE !!!</h3>  
+      <%= link_to 'Sign In', new_user_session_path %> |
       <!-- new_user_session_path содержит путь: "/users/sign_in".  И если он поменяется, то в ссылке путь поменяется автоматически -->
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
       <!-- new_user_session_path содержит путь: "/users/sign_in".  И если он поменяется, то в ссылке путь поменяется автоматически -->
@@ -37,6 +38,16 @@
       <%= link_to 'Contacts', new_contacts_path %> |
       <%= link_to 'About', about_path %>     
     </p> 
+
+<!-- Сдесь сднлаем блок вывода Sign_IN и Sign_OUT в зависимости от того, залогинился пользователь или не залогинился. Дополнительно будем прописывать ЛОГИН, под которым проведена регистрация двнного пользоватенля -->    
+    <h3>В зависимости от состояния РЕГИСТРАЦИИ:</h3>
+    <p> 
+      <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path %> 
+      <% end %>
+    </p>
 
     <%= yield %>
 
