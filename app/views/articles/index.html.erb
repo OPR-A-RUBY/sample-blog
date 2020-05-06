@@ -21,11 +21,13 @@
 	<div class="row">
 		<div class="col-sm-1"></div>
 		<div class="col-sm-11">
-			<%= link_to 'Show', article_path(article) %> | 
-		
-			<%= link_to 'Edit', edit_article_path(article) %> |
-		
-			<%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
+			<%= link_to 'Show details', article_path(article) %>  
+			
+			<% if user_signed_in? %>
+				<%= link_to 'Edit', edit_article_path(article) %> 
+			
+				<%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
+			<% end %>
 		</div>
 	</div>
 	<hr />
