@@ -12,19 +12,32 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+<!-- Такой способ указывать пути очень не желателен, т.к. пути прописаны жёстко -->
+    <p> 
+      <h3>It is not TRUE!</h3>
+      <a href="/users/sign_in">Sign in (!)</a> | 
+      <a href="/users/sign_out", data-method="delete" >Sign out (!)</a> 
+    </p> 
+    <br />
+<!-- А вот такуой способ указывать пути желателен, т.к. пути прописаны переменными из "rake routes" (далее, ra-ro) -->   
     <p>
-      <a href="/users/sign_in">Sign in</a> | 
-      <a href="/users/sign_out", data-method="delete" >Sign out</a> |
+      <h3>It is TRUE !!!</h3>  <%= link_to 'Sign In', new_user_session_path %> |
+      <!-- new_user_session_path содержит путь: "/users/sign_in".  И если он поменяется, то в ссылке путь поменяется автоматически -->
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+      <!-- new_user_session_path содержит путь: "/users/sign_in".  И если он поменяется, то в ссылке путь поменяется автоматически -->
     </p>
+    
+<!-- Аналогично сделаем остальные ссылки (через перемнные в ra-ro) -->
     <p>
-      <a href="/">Home</a> |
-      <a href="/articles">Articles</a> | 
-      <a href="/articles/new">New</a> |
-      <a href="/terms">Terms</a> |
-      <a href="/contacts">Contacts</a> |
-      <a href="/about">About</a> 
-       
-    </p>
+      <%= link_to 'Home', root_path %> |
+      <%= link_to 'Articles', articles_path %> | 
+      <%= link_to 'New', new_article_path %> |
+      <%= link_to 'Terms', terms_path %> |
+      <%= link_to 'Contacts', new_contacts_path %> |
+      <%= link_to 'About', about_path %>     
+    </p> 
+
     <%= yield %>
 
   </body>
