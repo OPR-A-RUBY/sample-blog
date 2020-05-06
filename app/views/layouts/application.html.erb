@@ -16,7 +16,7 @@
 <!-- Сдесь сднлаем блок вывода Sign_IN и Sign_OUT в зависимости от того, залогинился пользователь или не залогинился. Дополнительно будем прописывать ЛОГИН, под которым проведена регистрация двнного пользоватенля -->    
     <p> 
       <% if user_signed_in? %>
-        <b>Hello, <%= current_user.email %>!</b>
+        <b>Hello, <%= current_user.username %>!</b>
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Sign In', new_user_session_path %> 
