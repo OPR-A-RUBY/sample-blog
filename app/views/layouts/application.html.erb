@@ -4,34 +4,45 @@
     <title>Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-    
+     
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>  
-
-<!-- Сдесь сднлаем блок вывода Sign_IN и Sign_OUT в зависимости от того, залогинился пользователь или не залогинился. Дополнительно будем прописывать ЛОГИН, под которым проведена регистрация двнного пользоватенля -->    
-    <p> 
-      <% if user_signed_in? %>
-        <b>Hello, <%= current_user.username %>!</b>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign In', new_user_session_path %> 
-      <% end %>
-    </p>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <div class="text-left col-md-9 col-sm-8">
+        <%= link_to 'Home', root_path %> |
+        <%= link_to 'Articles', articles_path %> | 
+        <%= link_to 'New', new_article_path %> |
+        <%= link_to 'Terms', terms_path %> |
+        <%= link_to 'Contacts', new_contacts_path %> |
+        <%= link_to 'About', about_path %> 
+      </div>         
+     
+      <div class="text-right col-md-3 col-sm-4"> 
+      <!-- Сдесь сднлаем блок вывода Sign_IN и Sign_OUT в зависимости от того, залогинился пользователь или не залогинился. Дополнительно будем прописывать ЛОГИН, под которым проведена регистрация двнного пользоватенля -->  
+        <% if user_signed_in? %>
+          <b>Hello, <%= current_user.username %>!</b>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path %> 
+        <% end %>
+      </div>
+    </nav> 
 
     <%= yield %>
 
-    <p>
-      <%= link_to 'Home', root_path %> |
-      <%= link_to 'Articles', articles_path %> | 
-      <%= link_to 'New', new_article_path %> |
-      <%= link_to 'Terms', terms_path %> |
-      <%= link_to 'Contacts', new_contacts_path %> |
-      <%= link_to 'About', about_path %>     
-    </p> 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>   
   </body>
 </html>
