@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate_user!, :only => [:create]
+
   # Для создания коментария нам понадобиться один метод - create
   # ... т.к. сама форма будет формироваться на странице самой статьи
   def create
