@@ -1,0 +1,15 @@
+gem 'rspec-rails', '~> 3.5'  # Добавил Я. А 'capybara' на 56 строке уже есть (ОПР)
+
+gem 'rspec-rails', '~> 4.0.0'  # Добавил Я. А 'capybara' на 56 строке уже есть (ОПР)
+
+require spec_helper
+
+describe "something" do 
+
+  it "does something" do 
+
+    # ...
+
+  end
+  
+end    
