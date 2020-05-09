@@ -3,4 +3,9 @@ class Article < ApplicationRecord
   validates :text, presence: true   # ... аналогично.
   has_many :comments                # Связь с молделью Comment
   # "имеет много : коментариев"
+
+  def subject 
+    title
+  end
+  
 end
