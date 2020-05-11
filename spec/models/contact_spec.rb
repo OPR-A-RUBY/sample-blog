@@ -12,5 +12,10 @@ RSpec.describe Contact do          #
       expect(true).to eq true     # test code - он всегда true
     end
 
+    it 'valid email' do        # Третий тест: то что тестирует этот блок (3)
+      # contact = create(:contact, email: 'name@domen.com')
+      expect(true).to eq true     # test code 
+    end
+
   end
 end
